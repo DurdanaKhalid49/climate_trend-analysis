@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Climate Trend Analysis</title>
+</head>
+<body>
+    <h2>Climate Trend Analysis</h2>
+    <form action="/" method="post">
+        <label>Select State:</label>
+        <select name="state">
+            {% for state in states %}
+                <option value="{{ state }}">{{ state }}</option>
+            {% endfor %}
+        </select>
+        <label>Months to Forecast:</label>
+        <input type="number" name="month" min="1" max="24" value="12">
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

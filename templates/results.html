@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forecast Results</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h2>Forecast for {{ state }}</h2>
+    <div id="chart"></div>
+    <script>
+        var graph = {{ graph_json , safe }};
+        Plotly.newPlot('chart', graph.data, graph.layout);
+    </script>
+    <h3>Predicted Temperatures:</h3>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Predicted Temperature</th>
+        </tr>
+        {% for index, row in forecast_df.iterrows() %}
+        <tr>
+            <td>{{ row['date'] }}</td>
+            <td>{{ row['Predicted Temperature']|round(2) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back</a>
+</body>
+</html>
