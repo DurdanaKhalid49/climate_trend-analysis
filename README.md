@@ -45,13 +45,13 @@ curl -X POST "http://127.0.0.1:5000/predict" -H "Content-Type: application/json"
 ```
 📂 customer-churn-prediction
 │── model.py            # Train & save model
-│── app.py              # Streamlit dashboard
-│── flask_app.py        # Flask API
+│── dashboard.py        # Streamlit dashboard
+│── app.py              # Flask API
 │── requirements.txt    # Dependencies
 │── README.md           # Project documentation
 │── model.pkl           # Saved model
 │── scaler.pkl          # Saved scaler
-│── data.csv            # Dataset (add your own)
+│── data.csv            # average_monthly_temperature_by_state_1950-2022.csv and merged_temperature_data.csv
 │── .gitignore          # Ignore unnecessary files
 ```
 
