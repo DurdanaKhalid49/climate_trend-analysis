@@ -1,17 +1,17 @@
 # Customer Churn Prediction
 
 This project predicts customer churn using a machine learning model. It includes:
-- A trained Random Forest model (`model.py`)
-- A **Streamlit dashboard** (`app.py`) for interactive predictions
-- A **Flask API** (`flask_app.py`) to serve the model
+- A trained SARIMAX model (`model.py`)
+- A **Streamlit dashboard** (`dashboard.py`) for interactive predictions
+- A **Flask API** (`app.py`) to serve the model
 - All necessary files to deploy and run the project
 
 ## Installation
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/customer-churn-prediction.git
-   cd customer-churn-prediction
+   git clone https://github.com/DurdanaKhalid49/climate-trend-analysis.git
+   cd climate-trend-analysis
    ```
 2. Install dependencies:
    ```sh
@@ -43,7 +43,7 @@ curl -X POST "http://127.0.0.1:5000/predict" -H "Content-Type: application/json"
 
 ## Folder Structure
 ```
-📂 customer-churn-prediction
+📂 climate-trend-analysis
 │── model.py            # Train & save model
 │── dashboard.py        # Streamlit dashboard
 │── app.py              # Flask API
@@ -51,7 +51,7 @@ curl -X POST "http://127.0.0.1:5000/predict" -H "Content-Type: application/json"
 │── README.md           # Project documentation
 │── model.pkl           # Saved model
 │── scaler.pkl          # Saved scaler
-│── data.csv            # average_monthly_temperature_by_state_1950-2022.csv and merged_temperature_data.csv
+│── Data_            # average_monthly_temperature_by_state_1950-2022.csv and merged_temperature_data.csv
 │── .gitignore          # Ignore unnecessary files
 ```
 
