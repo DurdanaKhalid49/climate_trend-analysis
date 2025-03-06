@@ -1,4 +1,4 @@
-# Customer Churn Prediction
+# Climate Trend Analysis and Forecasting
 
 This project predicts customer churn using a machine learning model. It includes:
 - A trained SARIMAX model (`model.py`)
@@ -27,18 +27,18 @@ python model.py
 
 ## Running the Streamlit Dashboard
 ```sh
-streamlit run app.py
+streamlit run dashboard.py
 ```
 
 ## Running the Flask API
 ```sh
-python flask_app.py
+python app.py
 ```
 
 ## API Usage
-Send a POST request with customer features:
+Send a POST request with climate features:
 ```sh
-curl -X POST "http://127.0.0.1:5000/predict" -H "Content-Type: application/json" -d '{"features": [value1, value2, value3, value4]}'
+curl -X POST "http://127.0.0.1:5000/predict" -H "Content-Type: application/json" -d '{"features": [state,months]}'
 ```
 
 ## Folder Structure
