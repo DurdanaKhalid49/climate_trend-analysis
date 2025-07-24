@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forecast Results</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            padding: 2rem;
+            color: #333;
+        }
+
+        h2, h3 {
+            color: #00796b;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 0.6rem;
+            text-align: center;
+        }
+
+        th {
+            background-color: #e0f2f1;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #00796b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        a:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📊 Forecast for {{ state }}</h2>
+        <div id="chart"></div>
+
+        <script>
+            var graph = {{ graph_json | safe }};
+            Plotly.newPlot('chart', graph.data, graph.layout);
+        </script>
+
+        <h3>🔮 Predicted Temperatures</h3>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Predicted Temperature (°C)</th>
+            </tr>
+            {% for index, row in forecast_df.iterrows() %}
+            <tr>
+                <td>{{ row['date'] }}</td>
+                <td>{{ row['Predicted Temperature']|round(2) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/">⬅️ Back</a>
+    </div>
+</body>
+</html>
