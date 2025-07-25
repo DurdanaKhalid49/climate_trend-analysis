@@ -7,7 +7,18 @@ import numpy as np
 app = Flask(__name__)
 
 # Load trained SARIMAX model
-model = joblib.load("model/climate_sarimax.joblib")
+import joblib
+import requests
+import tempfile
+
+# Download the file from Hugging Face
+url = "https://huggingface.co/durdanakhalid/climate-trend-model/resolve/main/climate_sarimax.joblib"
+response = requests.get(url)
+
+# Save it to a temp file and load
+with tempfile.NamedTemporaryFile(delete=False) as tmp:
+    tmp.write(response.content)
+    model = joblib.load(tmp.name)
 # Load the dataset (ensure you have the correct path)
 df = pd.read_csv("D:/Portfolio Projects/Climate Trend Analysis – Monthly Temperature Patterns/Data_/average_monthly_temperature_by_state_1950-2022.csv")
 # Drop Unnecessary column
