@@ -6,7 +6,7 @@ import plotly.express as px
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 # Load the dataset (ensure you have the correct path)
-df = pd.read_csv("D:/Portfolio Projects/Climate Trend Analysis – Monthly Temperature Patterns/Data_/average_monthly_temperature_by_state_1950-2022.csv")
+df = pd.read_csv("Data_/average_monthly_temperature_by_state_1950-2022.csv")
 # Drop Unnecessary column
 df.drop(columns=['Unnamed: 0'], inplace=True)
 
