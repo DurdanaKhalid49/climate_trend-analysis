@@ -56,8 +56,6 @@ def home():
 
     return render_template("index.html", states=states)
 
-
-
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))  # Use Railway's assigned port, or 5000 for local
-    app.run(debug=False, host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 5000))  # use Railway-assigned port if available
+    app.run(host="0.0.0.0", port=port)
