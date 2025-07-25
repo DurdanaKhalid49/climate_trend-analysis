@@ -3,14 +3,11 @@ import pandas as pd
 import joblib
 import plotly.express as px
 import numpy as np
-
-app = Flask(__name__)
-
-# Load trained SARIMAX model
-import joblib
+import os
 import requests
 import tempfile
-
+app = Flask(__name__)
+# Load trained SARIMAX model
 # Download the file from Hugging Face
 url = "https://huggingface.co/durdanakhalid/climate-trend-model/resolve/main/climate_sarimax.joblib"
 response = requests.get(url)
@@ -59,5 +56,8 @@ def home():
 
     return render_template("index.html", states=states)
 
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Use Railway's assigned port, or 5000 for local
+    app.run(debug=False, host="0.0.0.0", port=port)
